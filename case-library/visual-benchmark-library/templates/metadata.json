@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "metadata_version": 1,
+  "image_id": null,
+  "status": "pending",
+  "title": null,
+  "score_level": null,
+  "teacher_score": {
+    "value": null,
+    "scale": 100,
+    "reviewer": null,
+    "source": null,
+    "reviewed_at": null
+  },
+  "category": null,
+  "subcategory": null,
+  "category_tags": [],
+  "product_type": null,
+  "product_facts": {
+    "material": null,
+    "height_cm": null,
+    "light_color": null,
+    "characters": null,
+    "source": null
+  },
+  "usage": null,
+  "age_segments": [],
+  "visual_goals": [],
+  "visual_features": {
+    "composition": null,
+    "lighting": null,
+    "human_role": null,
+    "background": null,
+    "emotion": null,
+    "color_palette": [],
+    "product_ratio": {
+      "value": null,
+      "measurement": null,
+      "evidence": null
+    }
+  },
+  "visual_rules": {
+    "product_priority": null,
+    "human_role": null,
+    "background": null,
+    "lighting": null
+  },
+  "why_good": [],
+  "avoid": [],
+  "redesign_required": [],
+  "asset": {
+    "path": null,
+    "sha256": null,
+    "width_px": null,
+    "height_px": null
+  },
+  "provenance": {
+    "source": null,
+    "rights_status": "pending",
+    "evidence_level": "description-only"
+  },
+  "policy_review": {
+    "status": "pending",
+    "source": null,
+    "reviewed_at": null,
+    "category_scope": null
+  },
+  "reference_group_id": null,
+  "related_records": [],
+  "evaluations": [],
+  "change_notes": [],
+  "scene_type": null,
+  "target_customer": {
+    "celebrant": null,
+    "buyer": null,
+    "age_segment": null,
+    "needs": [],
+    "source": null
+  },
+  "visual_analysis": {
+    "composition": null,
+    "product_position": null,
+    "product_ratio": {
+      "value": null,
+      "measurement": null,
+      "evidence": null
+    },
+    "lighting": null,
+    "color_palette": [],
+    "human_role": null,
+    "background": null,
+    "emotion": null
+  },
+  "reusable_rules": [],
+  "visual_tags": []
+}

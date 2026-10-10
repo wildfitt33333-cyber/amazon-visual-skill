@@ -1,0 +1,12 @@
+{
+  "library_version": "0.1",
+  "database_type": "file-based-image-library",
+  "image_records": [],
+  "record_glob": "../benchmark-cases/**/metadata.json",
+  "record_reference_format": "repository-relative metadata.json path",
+  "status": "awaiting-scored-image-import",
+  "cases": [],
+  "image_asset_root": "case-library/visual-benchmark-library/images/",
+  "image_id_format": "CR plus zero-padded sequence, starting at CR001",
+  "next_image_number": 1
+}

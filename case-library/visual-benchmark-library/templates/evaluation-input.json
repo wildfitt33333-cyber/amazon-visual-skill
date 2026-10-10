@@ -1,0 +1,40 @@
+{
+  "image_id": null,
+  "reviewer": null,
+  "reviewed_at": null,
+  "image_observed": false,
+  "check_conditions": null,
+  "hard_constraints": "pending",
+  "dimensions": {
+    "product_prominence": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    },
+    "composition": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    },
+    "lighting_realism": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    },
+    "human_realism": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    },
+    "lifestyle_authenticity": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    },
+    "color_harmony": {
+      "status": "pending",
+      "score": null,
+      "evidence": null
+    }
+  }
+}

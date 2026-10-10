@@ -1,0 +1,745 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:amazon-marquee:image-metadata:0.1",
+  "title": "Visual Benchmark Image Metadata v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "metadata_version",
+    "image_id",
+    "status",
+    "title",
+    "score_level",
+    "teacher_score",
+    "category",
+    "subcategory",
+    "category_tags",
+    "product_type",
+    "product_facts",
+    "usage",
+    "age_segments",
+    "visual_goals",
+    "visual_features",
+    "visual_rules",
+    "why_good",
+    "avoid",
+    "redesign_required",
+    "asset",
+    "provenance",
+    "policy_review",
+    "reference_group_id",
+    "related_records",
+    "evaluations",
+    "change_notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "metadata_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-Z][A-Z0-9_-]*$"
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "active",
+        "retired"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "score_level": {
+      "enum": [
+        "S",
+        "A",
+        null
+      ]
+    },
+    "teacher_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "scale",
+        "reviewer",
+        "source",
+        "reviewed_at"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "scale": {
+          "const": 100
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "category": {
+      "enum": [
+        "birthday",
+        "proposal",
+        "school-event",
+        "family-emotion",
+        "luxury-celebration",
+        null
+      ]
+    },
+    "subcategory": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "category_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "product_type": {
+      "enum": [
+        "marquee-number",
+        "marquee-letter",
+        "marry-me",
+        "heart-light",
+        null
+      ]
+    },
+    "product_facts": {
+      "type": "object",
+      "required": [
+        "material",
+        "height_cm",
+        "light_color",
+        "characters",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "material": {
+          "enum": [
+            "KT-board",
+            null
+          ]
+        },
+        "height_cm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "light_color": {
+          "enum": [
+            "warm-yellow",
+            "neutral-white",
+            "cool-white",
+            null
+          ]
+        },
+        "characters": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "usage": {
+      "enum": [
+        "amazon-main-image",
+        "secondary-image",
+        "brand-story",
+        "aesthetic-reference",
+        null
+      ]
+    },
+    "age_segments": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "kids",
+          "teen",
+          "adult",
+          "senior",
+          "unspecified"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "visual_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "visual_features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composition",
+        "lighting",
+        "human_role",
+        "background",
+        "emotion",
+        "color_palette",
+        "product_ratio"
+      ],
+      "properties": {
+        "composition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lighting": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "human_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "background": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "emotion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "color_palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "product_ratio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "measurement",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "measurement": {
+              "enum": [
+                "bounding-box-area",
+                "silhouette-area",
+                "frame-width",
+                "frame-height",
+                null
+              ]
+            },
+            "evidence": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "visual_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product_priority",
+        "human_role",
+        "background",
+        "lighting"
+      ],
+      "properties": {
+        "product_priority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "human_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "background": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lighting": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "why_good": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "avoid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "redesign_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "width_px",
+        "height_px"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "width_px": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "height_px": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source",
+        "rights_status",
+        "evidence_level"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rights_status": {
+          "enum": [
+            "internal-reference-authorized",
+            "pending",
+            "restricted"
+          ]
+        },
+        "evidence_level": {
+          "enum": [
+            "description-only",
+            "image-observed",
+            "teacher-reviewed"
+          ]
+        }
+      }
+    },
+    "policy_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "source",
+        "reviewed_at",
+        "category_scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "verified_for_main",
+            "not_for_main"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "reference_group_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "related_records": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evaluations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "change_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "scene_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_customer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "celebrant",
+        "buyer",
+        "age_segment",
+        "needs",
+        "source"
+      ],
+      "properties": {
+        "celebrant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "buyer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "age_segment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "needs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "visual_analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composition",
+        "product_position",
+        "product_ratio",
+        "lighting",
+        "color_palette",
+        "human_role",
+        "background",
+        "emotion"
+      ],
+      "properties": {
+        "composition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_position": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_ratio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "measurement",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "measurement": {
+              "enum": [
+                "bounding-box-area",
+                "silhouette-area",
+                "frame-width",
+                "frame-height",
+                null
+              ]
+            },
+            "evidence": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "lighting": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "color_palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "human_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "background": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "emotion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "reusable_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "visual_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "import_info": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imported_at",
+        "semantic_source",
+        "pixel_measurements",
+        "review_required"
+      ],
+      "properties": {
+        "imported_at": {
+          "type": "string"
+        },
+        "semantic_source": {
+          "enum": [
+            "filename-hints-unverified",
+            "image-model-unverified"
+          ]
+        },
+        "pixel_measurements": {
+          "type": "object",
+          "required": [
+            "mean_brightness_0_255",
+            "palette_method"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mean_brightness_0_255": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "palette_method": {
+              "type": "string"
+            }
+          }
+        },
+        "review_required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "active"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "image_id": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "title": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "category": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "product_type": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "usage": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "score_level": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
